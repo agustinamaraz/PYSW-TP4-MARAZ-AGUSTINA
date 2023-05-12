@@ -1,47 +1,41 @@
-<!-- <div class="text-center p-4 bg-dark">
+<div class="text-center p-4 bg-dark">
     <h2 class="h2 mb-4 text-white">Signos Zodiacales</h2>
     <div class="row justify-content-center">
 
-        <div class="card m-3" style="max-width: 300px;" *ngFor="let s of signs">
+        <div class="card m-3" style="max-width: 300px;" *ngFor="let s of signos">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="assets/images/{{s.img}}" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8 d-flex justify-content-center align-items-center">
-                    <h3>{{s.name}}</h3>
+                    <h3>{{s.nombre}}</h3>
                 </div>
             </div>
-
+            <div class="card-footer">
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Horoscopo de Hoy
+                </button>
+            </div>
+             <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Horoscopo de hoy para {{s.nombre}}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
         </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item" *ngFor="let s of signs">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            {{s.name}} - Tu horoscopo de Hoy
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <div class="row">
-                                <div class="col-8">
-                                    <h4 class="h5">{{s.name}}</h4>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, corporis.
-                                        Exercitationem impedit architecto, in repellat quam ipsa autem quaerat dolorum
-                                        voluptate dignissimos facilis magni dolore at optio magnam doloremque? Eligendi.
-                                    </p>
-                                </div>
-                            <div class="col-4" style="max-width: 200px;">
-                            <img src="assets/images/{{s.img}}" class="img-fluid" alt="">
-                         </div>
-                    </div>
-                </div>
-             </div>
+      </div>
         </div>
-     </div>
- </div> -->
+
+       
+
+    </div>  
+ </div>
