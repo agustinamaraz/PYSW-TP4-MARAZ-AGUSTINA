@@ -59,7 +59,13 @@ export class HoroscopoComponent {
         this.horoscopo = new Horoscopo();
 
         this.horoscopo.signo = result.sign;
-        this.horoscopo.periodo = result.period;
+
+        if(result.period == "monthly"){
+          this.horoscopo.periodo = "MES";
+        }else{
+          this.horoscopo.periodo = "HOY";
+        }
+        
         this.horoscopo.descripcion = result.general;
 
         
