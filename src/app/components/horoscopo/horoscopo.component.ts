@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Horoscopo } from 'src/app/models/horoscopo';
 import { Signo } from 'src/app/models/signo';
 import { HoroscopoService } from 'src/app/services/horoscopo.service';
 
@@ -8,10 +9,12 @@ import { HoroscopoService } from 'src/app/services/horoscopo.service';
   styleUrls: ['./horoscopo.component.css']
 })
 export class HoroscopoComponent {
-  signos!:Array<Signo>;
-  signo!:Signo;
+  signos:Array<Signo>;
+  //signo!:Signo;
+  horoscopo!:Horoscopo;
 
   constructor(private horosocopoService:HoroscopoService) {
+    this.horoscopo = new Horoscopo();
     this.signos=[
       {nombre:'aries',img:'tauro.jpg'},
       {nombre:'taurus',img:'tauro.jpg'},
@@ -48,7 +51,21 @@ export class HoroscopoComponent {
   //   )
   // }
 
-  
-  
+
+  public mostrarHoroscopo(signo:string, periodo:string){
+    this.horosocopoService.getHoroscopo(signo,periodo).subscribe(
+      (result) => {
+        
+        this.horoscopo = new Horoscopo();
+
+        this.horoscopo.signo = result.sign;
+        this.horoscopo.periodo = result.period;
+        this.horoscopo.descripcion = result.general;
+
+        
+      }
+    )
+
+  }
 
 }

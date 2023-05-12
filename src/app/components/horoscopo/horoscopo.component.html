@@ -12,30 +12,64 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button (click)="mostrarHoroscopo(s.nombre,'today')" type="button" class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Horoscopo de Hoy
                 </button>
+                <button (click)="mostrarHoroscopo(s.nombre,'monthly')" type="button" class="btn btn-warning m-1" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal2">
+                    Horoscopo del Mes
+                </button>
             </div>
-             <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Horoscopo de hoy para {{s.nombre}}</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Horoscopo de HOY para {{s.nombre}}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    {{horoscopo.signo}}
+                                </div>
+                                <div class="col-12 bg-secondary">
+                                    {{horoscopo.periodo}}
+                                </div>
+                                <div class="col-12">
+                                    {{horoscopo.descripcion}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-              ...
+            <!-- Modal2 -->
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Horoscopo del MES para {{s.nombre}}
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
-        </div>
-      </div>
         </div>
 
-       
 
-    </div>  
- </div>
+
+    </div>
+</div>
