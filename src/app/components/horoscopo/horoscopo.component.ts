@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HoroscopoService } from 'src/app/services/horoscopo.service';
 
 @Component({
   selector: 'app-horoscopo',
@@ -8,10 +9,12 @@ import { Component } from '@angular/core';
 export class HoroscopoComponent {
   signos!:Array<any>;
 
-  constructor() { 
+  constructor(private horosocopoService:HoroscopoService) { 
 
   }
 
   ngOnInit(): void {
   }
+
+  
 }
