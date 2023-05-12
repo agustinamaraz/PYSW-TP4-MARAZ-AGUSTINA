@@ -11,6 +11,20 @@ export class HoroscopoService {
 
   constructor(private http:HttpClient) { }
 
+  public getSignos():Observable<any>{
+
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'X-RapidAPI-Key': '48ec8965ecmshcdeb63d234df753p1ed300jsn308b4592f6ec',
+          'X-RapidAPI-Host': 'horoscopes-ai.p.rapidapi.com'
+        }
+      )
+    }
+
+    return this.http.get(this.urlEndPoint,httpOptions);
+  }
+  
   public getHoroscopo(signo:string): Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders(

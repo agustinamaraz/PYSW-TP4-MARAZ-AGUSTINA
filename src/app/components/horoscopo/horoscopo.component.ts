@@ -10,11 +10,11 @@ export class HoroscopoComponent {
   signos!:Array<any>;
 
   constructor(private horosocopoService:HoroscopoService) { 
-
+    
   }
 
   ngOnInit(): void {
   }
 
-  
+
 }
