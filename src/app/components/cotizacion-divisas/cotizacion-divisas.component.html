@@ -44,28 +44,29 @@
         <form class="formulario-azul text-white p-3">
           <div class="mb-3">
             <label for="cantidad" class="form-label">Cantidad</label>
-            <input type="number" class="form-control" id="cantidad" name="cantidad" required placeholder="Ingrese cantidad">
+            <input type="number" class="form-control" id="cantidad" name="cantidad" required placeholder="Ingrese cantidad" [(ngModel)]="conversor.cantidad">
           </div>
           <div class="mb-3">
             <label for="moneda" class="form-label text-white">De</label>
-            <select name="moneda" class="form-select" id="moneda">
-                <option value="usd">USD Dólares EEUU</option>
-                <option value="eur">EUR Euros EU</option>
-                <option value="gbp">GBP Libras Esterlinas UK</option>
+            <select name="monedaFrom" class="form-select" id="moneda" [(ngModel)]="conversor.monedaFrom">
+                <option value="USD">USD Dólares EEUU</option>
+                <option value="EUR">EUR Euros EU</option>
+                <option value="GBP">GBP Libras Esterlinas UK</option>
             </select>
           </div>
           <div class="mb-3">
             <label for="moneda2" class="form-label text-white">A</label>
-            <select name="moneda2" class="form-select" id="moneda2">
-                <option value="usd">USD Dólares EEUU</option>
-                <option value="eur">EUR Euros EU</option>
-                <option value="gbp">GBP Libras Esterlinas UK</option>
+            <select name="monedaTo" class="form-select" id="moneda2" [(ngModel)]="conversor.monedaTo">
+                <option value="USD">USD Dólares EEUU</option>
+                <option value="EUR">EUR Euros EU</option>
+                <option value="GBP">GBP Libras Esterlinas UK</option>
             </select>
           </div>
           <div class="mb-3">
-            <input class="form-control text-end" id="resultado" disabled>
+            <!-- <input class="form-control text-end" id="resultado" disabled> -->
+            <div class="w-100 bg-white p-4 text-black fw-bold" disabled>{{conversor.resultado}}</div>
           </div>
-          <button type="submit" class="btn btn-warning w-100">Convertir</button>
+          <button type="submit" class="btn btn-warning w-100" (click)="convertir()">Convertir</button>
         </form>
         <!--FORM-->
       </div>
