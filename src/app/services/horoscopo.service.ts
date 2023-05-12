@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HoroscopoService {
 
-  private urlEndPoint:string = "https://horoscopes-ai.p.rapidapi.com/get_horoscope/%7Bsign%7D/%7Bperiod%7D/general/es/";
+  private urlEndPoint:string = "https://horoscopes-ai.p.rapidapi.com/get_horoscope/%7Bsign%7D/%7Bperiod%7D/general/es";
 
   constructor(private http:HttpClient) { }
 
@@ -22,7 +22,7 @@ export class HoroscopoService {
       )
     }
 
-    return this.http.get(this.urlEndPoint,httpOptions);
+    return this.http.get("https://horoscopes-ai.p.rapidapi.com/get_signs",httpOptions);
   }
   
   public getHoroscopo(signo:string): Observable<any>{
