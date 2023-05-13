@@ -11,6 +11,7 @@ import { HoroscopoComponent } from './components/horoscopo/horoscopo.component';
 import { HttpClientModule } from '@angular/common/http'
 import { TrackService } from './services/track.service';
 import { FormsModule } from '@angular/forms';
+import { ConversionTextoAudioComponent } from './components/conversion-texto-audio/conversion-texto-audio.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     CotizacionDivisasComponent,
     FooterComponent,
     PortalMusicaComponent,
-    HoroscopoComponent
+    HoroscopoComponent,
+    ConversionTextoAudioComponent
    
   ],
   imports: [

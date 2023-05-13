@@ -28,7 +28,8 @@ export class CotizacionDivisasComponent {
       (result) =>{
         this.conversor.resultado = result.result;
         //alert(result.result);
-      }
+      },
+      () => console.log("error")
     )
   }
 
