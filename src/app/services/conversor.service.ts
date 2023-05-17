@@ -10,7 +10,7 @@ export class ConversorService {
 
   constructor(private http: HttpClient) { }
 
-  public convertir(cantidad:number, monedaFrom: string, monedaTo: string): Observable<any> {
+  public convertir(cantidad: number, monedaFrom: string, monedaTo: string): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -25,7 +25,21 @@ export class ConversorService {
       .set('from-type', monedaFrom)
       .set('to-type', monedaTo);
 
-    return this.http.post(this.urlEndPoint,body,httpOptions);
+    return this.http.post(this.urlEndPoint, body, httpOptions);
+  }
+
+  public getMonedas(): Observable<any> {
+
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'X-RapidAPI-Key': '5ce7d3c811msh8789ac159f40c3ap14a059jsn879800f49f89',
+          'X-RapidAPI-Host': 'currency-converter18.p.rapidapi.com'
+        }
+      )
+    }
+
+    return this.http.get("https://currency-converter18.p.rapidapi.com/api/v1/supportedCurrencies",httpOptions);
   }
 
 }

@@ -12,6 +12,7 @@ export class HoroscopoComponent {
   signos:Array<Signo>;
   //signo!:Signo;
   horoscopo!:Horoscopo;
+  bandera!:boolean;
 
   constructor(private horosocopoService:HoroscopoService) {
     this.horoscopo = new Horoscopo();
@@ -29,7 +30,6 @@ export class HoroscopoComponent {
       {nombre:'aquarius',img:'virgo.jpg'},
       {nombre:'pisces',img:'leo.jpg'}
     ]
-
     //this.cargarSignos();
   }
 
@@ -68,7 +68,7 @@ export class HoroscopoComponent {
         
         this.horoscopo.descripcion = result.general;
 
-        
+        this.bandera=true;
       },
       error => {
         alert("Error en la petición");

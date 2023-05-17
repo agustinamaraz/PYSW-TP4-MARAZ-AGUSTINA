@@ -12,15 +12,14 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button (click)="mostrarHoroscopo(s.nombre,'today')" type="button" class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button (click)="mostrarHoroscopo(s.nombre,'today')" type="button" class="btn btn-warning m-1">
                     Horoscopo de Hoy
                 </button>
-                <button (click)="mostrarHoroscopo(s.nombre,'monthly')" type="button" class="btn btn-warning m-1" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
+                <button (click)="mostrarHoroscopo(s.nombre,'monthly')" type="button" class="btn btn-warning m-1">
                     Horoscopo del Mes
                 </button>
             </div>
-            <!-- Modal -->
+            <!-- Modal
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
@@ -44,11 +43,17 @@
                         </div>
                     </div>
                 </div>
-            </div>
-           
+            </div> -->
+
         </div>
-
-
-
+    </div>
+    <div class="row bg-secondary p-3 mt-5" *ngIf="bandera==true">
+        <div class="col-12">
+            <h1 class="text-white">Horóscopo de <label class="fw-bold">{{horoscopo.signo | uppercase}} </label></h1>
+            <h2 class="bg-primary text-white">{{horoscopo.periodo}}</h2>
+        </div>
+        <div class="col-12">
+            <h5 class="p-2 text-warning">{{horoscopo.descripcion}}</h5>
+        </div>
     </div>
 </div>

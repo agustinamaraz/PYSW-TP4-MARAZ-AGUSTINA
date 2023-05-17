@@ -8,24 +8,39 @@ import { ConversorService } from 'src/app/services/conversor.service';
   styleUrls: ['./cotizacion-divisas.component.css']
 })
 export class CotizacionDivisasComponent {
-  conversor!:Conversor;
-  currencies:Array<any>;
-  
-  constructor(private conversorService:ConversorService) {
+  conversor!: Conversor;
+  currencies: Array<any>;
+  monedas!: Array<any>;
+
+  constructor(private conversorService: ConversorService) {
     this.conversor = new Conversor();
+    this.monedas = new Array<any>();
     this.currencies = [
-      {name:'USD',img:'USD.png'},
-      {name:'EUR',img:'eur.png'},
-      {name:'GBP',img:'gb.png'}
+      { name: 'USD', img: 'USD.png' },
+      { name: 'EUR', img: 'eur.png' },
+      { name: 'GBP', img: 'gb.png' }
     ]
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  public convertir(){
-    this.conversorService.convertir(this.conversor.cantidad,this.conversor.monedaFrom,this.conversor.monedaTo).subscribe(
-      (result) =>{
+  public obtenerMonedas(){
+    this.conversorService.getMonedas().subscribe(
+      (result)=>{
+        result.forEach((element:any) => {
+          
+        });
+      },
+      error => {
+        alert("Error");
+      }
+    )
+  }
+
+  public convertir() {
+    this.conversorService.convertir(this.conversor.cantidad, this.conversor.monedaFrom, this.conversor.monedaTo).subscribe(
+      (result) => {
         this.conversor.resultado = result.result;
         //alert(result.result);
       },
