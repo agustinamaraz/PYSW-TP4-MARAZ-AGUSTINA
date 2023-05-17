@@ -20,6 +20,7 @@ export class CotizacionDivisasComponent {
       { name: 'EUR', img: 'eur.png' },
       { name: 'GBP', img: 'gb.png' }
     ]
+    this.obtenerMonedas();
   }
 
   ngOnInit(): void {
@@ -28,9 +29,10 @@ export class CotizacionDivisasComponent {
   public obtenerMonedas(){
     this.conversorService.getMonedas().subscribe(
       (result)=>{
-        result.forEach((element:any) => {
-          
-        });
+        for(let i:number=0; i<10;i++){ //solo carga los 10 primeros de los 162 que hay
+          this.monedas.push(result[i]);
+        }
+        console.log(this.monedas);
       },
       error => {
         alert("Error");
@@ -38,11 +40,21 @@ export class CotizacionDivisasComponent {
     )
   }
 
+  // public convertir() {
+  //   this.conversorService.convertir(this.conversor.cantidad, this.conversor.monedaFrom, this.conversor.monedaTo).subscribe(
+  //     (result) => {
+  //       this.conversor.resultado = result.result;
+  //       //alert(result.result);
+  //     },
+  //     () => console.log("error")
+  //   )
+  // }
+
   public convertir() {
-    this.conversorService.convertir(this.conversor.cantidad, this.conversor.monedaFrom, this.conversor.monedaTo).subscribe(
+    this.conversorService.convertirApi2(this.conversor.cantidad, this.conversor.monedaFrom, this.conversor.monedaTo).subscribe(
       (result) => {
-        this.conversor.resultado = result.result;
-        //alert(result.result);
+        console.log(result);
+        this.conversor.resultado = result.result.convertedAmount;
       },
       () => console.log("error")
     )

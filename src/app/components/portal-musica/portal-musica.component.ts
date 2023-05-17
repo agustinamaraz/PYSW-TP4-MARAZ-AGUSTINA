@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { delay } from 'rxjs';
 import { Track } from 'src/app/models/track';
 import { TrackService } from 'src/app/services/track.service';
 
@@ -29,7 +30,9 @@ export class PortalMusicaComponent {
 
     this.ids.forEach(id => {
 
-      this.trackService.getTrack(id).subscribe(
+      this.trackService.getTrack(id)
+      //.pipe(delay(1000))
+      .subscribe(
         (result) => {
 
           this.track = new Track();
@@ -41,12 +44,16 @@ export class PortalMusicaComponent {
 
           this.tracks.push(this.track);
 
-          //console.log(this.track);
-        },
+          
+        }
+        ,
+        
         () => console.log("error")
       );
 
     });
+    
+    console.log(this.tracks);
   }
 
 }
