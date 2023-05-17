@@ -21,6 +21,11 @@ const routes: Routes = [
   {
     path:'text-to-speech',
     component: ConversionTextoAudioComponent
+  },
+  {
+    path:'',
+    redirectTo: '/cotizacion-divisas',
+    pathMatch: 'full'
   }
 ];
 

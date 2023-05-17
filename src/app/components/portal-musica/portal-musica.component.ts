@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Track } from 'src/app/models/track';
 import { TrackService } from 'src/app/services/track.service';
 
@@ -9,13 +8,13 @@ import { TrackService } from 'src/app/services/track.service';
   styleUrls: ['./portal-musica.component.css']
 })
 export class PortalMusicaComponent {
-  track!:Track;
-  ids:Array<number>;
-  tracks:Array<Track>;
+  track!: Track;
+  ids: Array<number>;
+  tracks: Array<Track>;
 
-  constructor(private trackService:TrackService, private router:Router, private activatedRoute: ActivatedRoute) { //inyeccion2
+  constructor(private trackService: TrackService) { //inyeccion2
 
-    this.ids = [1109739,1915471137,2248693817,1741494317,1765692557,72544949];
+    this.ids = [1109739, 1915471137, 2248693817, 1741494317, 1765692557, 72544949];
 
     this.tracks = new Array<Track>();
 
@@ -23,18 +22,18 @@ export class PortalMusicaComponent {
   }
 
   ngOnInit(): void {
-  
+
   }
 
-  getTrack(){
+  getTrack() {
 
     this.ids.forEach(id => {
-      
+
       this.trackService.getTrack(id).subscribe(
-        result => {
+        (result) => {
 
           this.track = new Track();
-          
+
           this.track.title = result.title;
           this.track.artist = result.artist.name;
           this.track.preview = result.preview;
@@ -45,7 +44,7 @@ export class PortalMusicaComponent {
           //console.log(this.track);
         },
         () => console.log("error")
-        );
+      );
 
     });
   }

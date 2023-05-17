@@ -69,6 +69,9 @@ export class HoroscopoComponent {
         this.horoscopo.descripcion = result.general;
 
         
+      },
+      error => {
+        alert("Error en la petición");
       }
     )
 
